@@ -149,7 +149,7 @@ DBResult Selector::selectUserByEmailPassword(const std::string& email,
 
 std::string Selector::generateQuerySelectUserByEmailPassword(const std::string& email, const std::string& password) const
 {
-    std::string query = "select first_name, last_name, email, password, role.name as role_name from user
+    std::string query = "select first_name, last_name, email, password, role.name as role_name from user"
                         " join user_role on user.id = user_role.user_id"
                         " join role on user_role.role_id = role.id"
                         " where email = '" + email + "' and password = '" + password + "'";

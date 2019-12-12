@@ -7,7 +7,7 @@ class User
 {
 public:
     User() = default;
-    User(QString firstName, QString secondName, QString email, QString password, DBTypes::DBIndex id);
+    User(QString firstName, QString secondName, QString email, QString password, QString role, DBTypes::DBIndex id);
     QString firstName() const;
     QString secondName() const;
     QString email() const;
