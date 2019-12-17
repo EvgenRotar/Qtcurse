@@ -13,8 +13,6 @@ public:
     QString email() const;
     QString password() const;
     QString role() const;
-
-private:
     QString m_email;
     QString m_firstName;
     QString m_secondName;

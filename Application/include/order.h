@@ -36,8 +36,6 @@ public:
     QString customerFirstName() const;
     QString customerSecondName() const;
     QString customerEmail() const;
-
-private:
     QString m_description;
     QString m_price;
     QString m_fromAddress;

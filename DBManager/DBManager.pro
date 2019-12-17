@@ -41,7 +41,9 @@ HEADERS += \
 
 headers.path = $$PWD/../shared/include
 headers.files = include/dbtypes.h \
-                include/Processor.h
-
+                include/Processor.h \
+                include/Executor.h \
+                include/ConnectionManager.h \
+                include/dbmapper.h
 
 INSTALLS += headers
