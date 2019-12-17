@@ -1,6 +1,7 @@
 #include "Manipulator.h"
 #include <sstream>
 #include "dbmapper.h"
+#include <QSqlQuery>
 
 using namespace DBTypes;
 
@@ -17,10 +18,31 @@ std::pair<DBResult, int> Manipulator::insertRow(const std::string& tableName, co
 
 bool Manipulator::deleteRow(const std::string& tableName, const int& id)
 {
-    const std::string& query {generateInsertQuery(tableName, id)};
-    m_executor.execute(query);
-    return true;
+    const std::string& query {generateDeleteQuery(tableName, id)};
+    const std::pair<DBResult, QSqlQuery>& result {m_executor.execute(query)};
+    if (result.first == DBResult::OK) {
+        return true;
+    }
+    return false;
 }
+
+bool Manipulator::deleteShippingRowByOrderId(const int& id)
+{
+    const std::string& query {generateDeleteQueryShippingByOrderId(id)};
+    const std::pair<DBResult, QSqlQuery>& result {m_executor.execute(query)};
+    if (result.first == DBResult::OK) {
+        return true;
+    }
+    return false;
+}
+
+std::string Manipulator::generateDeleteQueryShippingByOrderId(const int& id) const
+{
+    std::string query = "DELETE FROM shipping where shipping.order_id = " + std::to_string(id);
+
+    return query;
+}
+
 
 std::string Manipulator::generateBindString(size_t paramCount) const
 {

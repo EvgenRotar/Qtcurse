@@ -28,9 +28,19 @@ public:
               std::vector<DBTypes::DBEntry>> requestUserByEmailPassword(const std::string& email,
                                                                         const std::string& password);
 
+    bool requestDeleteOrder(const int& id);
 
+    int requestAcceptOrder(const int& orderId, const int& driverId,
+                                       const std::string& sendingDate, const std::string& arrivalDate);
 
-private:
+    bool requestFinishOrder(const int& orderId);
+
+    int requestAddOrder(const int& orderType, const int& customerId,
+                                   const std::string& description, const int& price,
+                                   const std::string& fromAddress, const std::string& toAddress,
+                                   const std::string& sendingDate, const std::string& orderItemName,
+                                   const int& length, const int& width,
+                                   const int& height);
     struct ProcessorPrivate;
     std::unique_ptr<ProcessorPrivate> m_d;
 };

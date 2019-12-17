@@ -51,6 +51,33 @@ std::pair<bool, std::vector<Order>> OrderReader::requestOrdersBrowse()
                           transformOrder(entries));
 }
 
+bool OrderReader::deleteOrder(int id)
+{
+    return m_dbProcessor->requestDeleteOrder(id);
+}
+
+int OrderReader::acceptOrder(const int& orderId, const int& driverId,
+                             const std::string& sendingDate, const std::string& arrivalDate)
+{
+    return m_dbProcessor->requestAcceptOrder(orderId, driverId, sendingDate, arrivalDate);
+
+}
+
+bool OrderReader::finishOrder(const int& orderId)
+{
+    return m_dbProcessor->requestFinishOrder(orderId);
+}
+
+int OrderReader::addOrder(const int& orderType, const int& customerId,
+                               const std::string& description, const int& price,
+                               const std::string& fromAddress, const std::string& toAddress,
+                               const std::string& sendingDate, const std::string& orderItemName,
+                               const int& length, const int& width,
+                               const int& height)
+{
+    return m_dbProcessor->requestAddOrder(orderType, customerId, description, price, fromAddress, toAddress, sendingDate, orderItemName, length, width, height);
+}
+
 OrderReader::~OrderReader()
 {
 }
