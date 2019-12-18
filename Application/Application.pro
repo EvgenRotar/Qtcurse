@@ -23,7 +23,8 @@ SOURCES += \
     src/order.cpp \
     src/orderreader.cpp \
     src/ordermodel.cpp \
-    src/userservice.cpp
+    src/userservice.cpp \
+    serviceaccessor.cpp
 RESOURCES += qml.qrc
 
 # Additional import path used to resolve QML modules in Qt Creator's code model
@@ -48,6 +49,7 @@ HEADERS += \
     include/order.h \
     include/ordermodel.h \
     include/orderreader.h \
-    include/usersservice.h
+    include/usersservice.h \
+    serviceaccessor.h
 
 DISTFILES +=

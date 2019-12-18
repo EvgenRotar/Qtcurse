@@ -1,8 +1,10 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
 #include <QQuickStyle>
+#include <QQmlContext>
 #include "usermodel.h"
 #include "customermodel.h"
+#include "serviceaccessor.h"
 #include <QDebug>
 
 int main(int argc, char *argv[])
@@ -14,7 +16,13 @@ int main(int argc, char *argv[])
     UserModel::registerMe("Users");
     CustomerModel::registerMe("Customer");
 
+    serviceaccessor *serviceAccessor = new serviceaccessor();
+
+
     QQmlApplicationEngine engine;
+
+    engine.rootContext()->setContextProperty("serviceAccessor",serviceAccessor);
+
     engine.addImportPath(":/qml");
     const QUrl url(QStringLiteral("qrc:/main.qml"));
     QObject::connect(&engine, &QQmlApplicationEngine::objectCreated,
