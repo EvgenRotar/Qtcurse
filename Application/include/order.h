@@ -7,12 +7,33 @@ class Order
 {
 public:
     Order() = default;
-    Order(QString description, QString price, QString fromAddress, QString toAddress,
-          QString orderSendingDate, QString orderItemName, QString orderItemHeight, QString orderItemWidth,
-          QString orderItemLength, QString orderTypeName, QString shippingSendingDate, QString shippingArrivalDate,
-          QString carNumber, QString carModel, QString companyName, QString companyRegistrationDate, QString driverId,
-          QString driverFirstName, QString driverSecondName, QString driverEmail, QString custimerId, QString customerFirstName,
-          QString customerSecondName, QString customerEmail, DBTypes::DBIndex id);
+    Order(
+            QString customerId,
+            QString customerFirstName,
+            QString customerSecondName,
+            QString customerEmail,
+            QString description,
+          QString price,
+          QString fromAddress,
+          QString toAddress,
+          QString orderSendingDate,
+          QString orderItemName,
+            QString orderItemLength,
+          QString orderItemHeight,
+          QString orderItemWidth,
+          QString orderTypeName,
+          QString driverId,
+          QString driverFirstName,
+          QString driverSecondName,
+          QString driverEmail,
+          QString carNumber,
+          QString carModel,
+          QString companyName,
+          QString companyRegistrationDate,
+          QString shippingSendingDate,
+          QString shippingArrivalDate,
+          DBTypes::DBIndex id
+          );
 
     QString description() const;
     QString price() const;
@@ -38,6 +59,7 @@ public:
     QString customerFirstName() const;
     QString customerSecondName() const;
     QString customerEmail() const;
+
     QString m_description;
     QString m_price;
     QString m_fromAddress;
