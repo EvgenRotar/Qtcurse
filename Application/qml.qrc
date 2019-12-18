@@ -1,26 +1,11 @@
 <RCC>
     <qresource prefix="/">
-        <file>qml/ContactsModule/Base/BaseListDelegate.qml</file>
-        <file>qml/ContactsModule/Base/BaseListSectionDelegate.qml</file>
-        <file>qml/ContactsModule/Base/BaseListView.qml</file>
-        <file>qml/ContactsModule/Impl/ContactsView.qml</file>
-        <file>qml/ContactsModule/Base/qmldir</file>
-        <file>qml/ContactsModule/Impl/qmldir</file>
-        <file>qml/ContactsModule/qmldir</file>
-        <file>qml/ContactsModule/Impl/ContactDelegate.qml</file>
-        <file>qml/ContactsModule/Base/BaseText.qml</file>
-        <file>qml/ContactsModule/Base/ImageBubble.qml</file>
-        <file>qml/ResourceProvider/qmldir</file>
-        <file>qml/ResourceProvider/Resources.qml</file>
-        <file>qml/resources/default-contact-icon.svg</file>
-        <file>qml/ContactsModule/Base/RoundImage.qml</file>
-        <file>login.qml</file>
-        <file>StartWindow.qml</file>
-        <file>StartWindowForm.ui.qml</file>
-        <file>AuthorizationForm.ui.qml</file>
-        <file>RegistrationForm.ui.qml</file>
-        <file>qml/resources/fromimage.jpeg</file>
-        <file>qml/resources/image.jpg</file>
-        <file>qtquickcontrols2.conf</file>
+        <file>main.qml</file>
+        <file>RegistrationPage.qml</file>
+        <file>CustmoerMainPage.qml</file>
+        <file>EmployeeMainPage.qml</file>
+        <file>CustomerOrderDetails.qml</file>
+        <file>EmployeeMainOrderDetails.qml</file>
+        <file>EmployeePersonalOrderDetails.qml</file>
     </qresource>
 </RCC>

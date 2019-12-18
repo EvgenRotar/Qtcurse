@@ -49,3 +49,5 @@ HEADERS += \
     include/ordermodel.h \
     include/orderreader.h \
     include/usersservice.h
+
+DISTFILES +=
