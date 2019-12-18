@@ -41,6 +41,7 @@ public:
                                    const std::string& sendingDate, const std::string& orderItemName,
                                    const int& length, const int& width,
                                    const int& height);
+private:
     struct ProcessorPrivate;
     std::unique_ptr<ProcessorPrivate> m_d;
 };

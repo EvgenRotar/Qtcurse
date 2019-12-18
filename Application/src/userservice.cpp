@@ -12,7 +12,36 @@
 #include <iostream>
 
 using namespace DBTypes;
-using namespace db;
+
+usersservice::usersservice()
+{
+    insertRow("user", {{"Evgeny", "Rotar", "evgen@mail.com", "admin"}});
+    insertRow("user", {{"Anna", "Glushenko", "anna@mail.com", "admin"}});
+    insertRow("user", {{"Lexa", "Tsimbalist", "lexa@mail.com", "user"}});
+    insertRow("user", {{"Semen", "Petrenko", "sema@mail.com", "user"}});
+    insertRow("role", {{"customer"}});
+    insertRow("role", {{"driver"}});
+    insertRow("user_role", {{"1","1"}});
+    insertRow("user_role", {{"2","1"}});
+    insertRow("user_role", {{"3","2"}});
+    insertRow("user_role", {{"4","2"}});
+    insertRow("company", {{"Semens","2017-03-01"}});
+    insertRow("company", {{"Lexas","2018-01-01"}});
+    insertRow("company_employee", {{"1","3","70"}});
+    insertRow("company_employee", {{"2","4","50"}});
+    insertRow("order_type", {{"Xrypkiy"}});
+    insertRow("order_type", {{"Ne xrypkiy"}});
+    insertRow("order", {{"1","1","vezem","100","from address1","to address2","2019-02-02"}});
+    insertRow("order", {{"2","1","vezti bistro","200","from address2","to address3","2019-03-03"}});
+    insertRow("order_item", {{"1","meat","12","13","14"}});
+    insertRow("order_item", {{"2","glass","15","16","17"}});
+    insertRow("shipping", {{"1","2019-06-06","2019-07-07","3"}});
+    insertRow("shipping", {{"2","2019-08-08","2019-09-09","4"}});
+    insertRow("vehicle", {{"1","1234","mers"}});
+    insertRow("vehicle", {{"2","4321","bmw"}});
+    insertRow("vehicle_driver", {{"1","3","2017-04-04","2020-10-10"}});
+    insertRow("vehicle_driver", {{"2","4","2018-04-03","2021-09-09"}});
+}
 
 std::string generateBindString(size_t paramCount)
 {
@@ -46,8 +75,7 @@ std::pair<DBResult, int> usersservice::insertRow(const std::string& tableName, c
                           result.second.lastInsertId().toInt());
 }
 
-usersservice::usersservice()
-{}
+
 
 std::string generateQuerySelectUserByEmailPassword(const std::string& email, const std::string& password)
 {
