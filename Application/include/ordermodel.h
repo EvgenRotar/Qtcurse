@@ -8,6 +8,25 @@ class OrderModel : public QAbstractListModel
     Q_OBJECT
 public:
     OrderModel();
+
+    Q_INVOKABLE int createNewOrder(QString description,
+                                   QString price,
+                                   QString fromAddress,
+                                   QString toAddress,
+                                   QString orderSendingDate,
+                                   QString orderItemName,
+                                   QString orderItemHeight,
+                                   QString orderItemWidth,
+                                   QString orderItemLength,
+                                   QString orderTypeName,
+                                   QString shippingSendingDate,
+                                   QString shippingArrivalDate,
+                                   QString carNumber,
+                                   QString carModel,
+                                   QString companyName,
+                                   int customerId);//TBD
+    Q_INVOKABLE int assignOrderTODriver(int orderId, int driverId);
+
     static void registerMe(const std::string& moduleName);
     int rowCount(const QModelIndex& parent = {}) const override;
     QVariant data(const QModelIndex& index = {}, int role = Qt::DisplayRole) const override;

@@ -7,5 +7,6 @@
         <file>CustomerOrderDetails.qml</file>
         <file>EmployeeMainOrderDetails.qml</file>
         <file>EmployeePersonalOrderDetails.qml</file>
+        <file>CustomerCreateOrder.qml</file>
     </qresource>
 </RCC>
