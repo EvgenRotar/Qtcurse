@@ -9,6 +9,31 @@ OrderModel::OrderModel()
     }
 }
 
+int OrderModel::assignOrderTODriver(int orderId, int driverId){
+
+}
+
+int OrderModel::createNewOrder(QString description,
+                               QString price,
+                               QString fromAddress,
+                               QString toAddress,
+                               QString orderSendingDate,
+                               QString orderItemName,
+                               QString orderItemHeight,
+                               QString orderItemWidth,
+                               QString orderItemLength,
+                               QString orderTypeName,
+                               QString shippingSendingDate,
+                               QString shippingArrivalDate,
+                               QString carNumber,
+                               QString carModel,
+                               QString companyName,
+                               int customerId)
+{
+
+
+}
+
 void OrderModel::registerMe(const std::string& moduleName)
 {
     qmlRegisterType<OrderModel>(moduleName.c_str(), 1, 0, "OrderModel");
