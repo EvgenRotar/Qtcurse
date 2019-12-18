@@ -3,8 +3,8 @@
 Order::Order(QString description, QString price, QString fromAddress, QString toAddress,
              QString orderSendingDate, QString orderItemName, QString orderItemHeight, QString orderItemWidth,
              QString orderItemLength, QString orderTypeName, QString shippingSendingDate, QString shippingArrivalDate,
-             QString carNumber, QString carModel, QString companyName, QString companyRegistrationDate,
-             QString driverFirstName, QString driverSecondName, QString driverEmail, QString customerFirstName,
+             QString carNumber, QString carModel, QString companyName, QString companyRegistrationDate, QString driverId,
+             QString driverFirstName, QString driverSecondName, QString driverEmail, QString customerId, QString customerFirstName,
              QString customerSecondName, QString customerEmail, DBTypes::DBIndex id)
     : m_description {std::move(description)},
       m_price {std::move(price)},
@@ -22,9 +22,11 @@ Order::Order(QString description, QString price, QString fromAddress, QString to
       m_carModel {std::move(carModel)},
       m_companyName {std::move(companyName)},
       m_companyRegistrationDate {std::move(companyRegistrationDate)},
+      m_driverId {std::move(driverId)},
       m_driverFirstName {std::move(driverFirstName)},
       m_driverSecondName {std::move(driverSecondName)},
       m_driverEmail {std::move(driverEmail)},
+      m_customerId {std::move(customerId)},
       m_customerFirstName {std::move(customerFirstName)},
       m_customerSecondName {std::move(customerSecondName)},
       m_customerEmail {std::move(customerEmail)},
@@ -119,4 +121,12 @@ QString Order::customerSecondName() const
 QString Order::customerEmail() const
 {
     return m_customerEmail;
+}
+QString Order::customerId() const
+{
+    return m_customerId;
+}
+QString Order::driverId() const
+{
+    return m_driverId;
 }

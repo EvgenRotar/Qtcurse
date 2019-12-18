@@ -37,6 +37,8 @@ std::vector<Order> transformOrder(const std::vector<DBEntry>& source)
                         entry[20].toString(),
                         entry[21].toString(),
                         entry[22].toString(),
+                        entry[23].toString(),
+                        entry[24].toString(),
                         entry[0].toInt()};
     });
     return target;
