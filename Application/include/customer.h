@@ -37,6 +37,7 @@ public:
     QString companyRegistrationDate() const;
     QString shippingSendingDate() const;
     QString shippingArrivalDate() const;
+
     QString m_customerFirstName;
     QString m_customerSecondName;
     QString m_customerEmail;

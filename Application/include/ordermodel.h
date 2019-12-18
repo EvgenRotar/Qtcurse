@@ -63,6 +63,4 @@ private:
         CustomerEmailRole
     };
 
-    bool updateOrders();
-
 };

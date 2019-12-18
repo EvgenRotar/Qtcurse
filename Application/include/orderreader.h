@@ -3,6 +3,10 @@
 #include <QList>
 #include <memory>
 #include "order.h"
+#include <QSqlQuery>
+#include <QSqlRecord>
+#include <vector>
+#include <sstream>
 
 namespace db
 {
@@ -13,17 +17,20 @@ class OrderReader
 public:
     OrderReader();
 
-    std::pair<bool,
-              std::vector<Order>> requestOrdersBrowse();
-
     ~OrderReader();
 
     QList<Order> getAllOrders();
-    QList<Order> getCustomerOrders(in customerId);
+
+    QList<Order> getCustomerOrders(int customerId);
+
     QList<Order> getAssignedToEmployeeOrders(int employeeId);
 
+    QList<Order> getOrderByOrderIdBrowse(int orderId);
+
     bool deleteOrder(int id);
+
     bool finishOrder(const int& orderId);
+
     int acceptOrder(const int& orderId, const int& driverId,
                                  const std::string& sendingDate, const std::string& arrivalDate);
 

@@ -158,12 +158,12 @@ std::string Selector::generateQuerySelectUserByEmailPassword(const std::string& 
 
 std::string Selector::generateQuerySelectAllOrders() const
 {
-    std::string query = "SELECT \"order\".id, \"order\".description, \"order\".price, \"order\".from_address, \"order\".to_address, \"order\".sending_date as order_sending_date,"
-                        " order_item.name as order_item_name, order_item.height, order_item.width, order_item.length, order_type.name as order_type_name,"
-                        " shipping.sending_date as shipping_sending_date, shipping.arrival_date as shipping_arrival_date, vehicle.car_number, vehicle.model as car_model,"
-                        " company.name as company_name, company.registration_date as company_registration_date,"
-                        " dr.id as driver_id, dr.first_name as driver_first_name, dr.last_name as driver_last_name, dr.email as driver_email,"
-                        " user.id as customer_id, user.first_name as customer_first_name, user.last_name as customer_last_name, user.email as customer_email"
+    std::string query = "SELECT \"order\".id as order_id, user.id, user.first_name, user.last_name, user.email,"
+                        " \"order\".description, \"order\".price, \"order\".from_address, \"order\".to_address, \"order\".sending_date as order_sending_date,"
+                        " order_item.name as order_item_name, order_item.length, order_item.height, order_item.width, order_type.name as order_type_name,"
+                        " a.id as driver_id, a.first_name as driver_first_name, a.last_name as driver_last_name, a.email as driver_email,"
+                        " vehicle.car_number, vehicle.model as car_model, company.name as company_name, company.registration_date as company_registration_date,"
+                        " shipping.sending_date as shipping_sending_date, shipping.arrival_date as shipping_arrival_date"
                  " from \"order\""
                  " join order_type on \"order\".type = order_type.id"
                  " join order_item on \"order\".id = order_item.order_id"
@@ -184,10 +184,10 @@ std::string Selector::generateQuery(const std::string& tableName) const
 
 std::string Selector::generateQuerySelectAllByCustomerId(const int& id) const
 {
-    std::string query = "SELECT user.id, user.first_name, user.last_name, user.email,"
+    std::string query = "SELECT \"order\".id as order_id, user.id, user.first_name, user.last_name, user.email,"
                         " \"order\".description, \"order\".price, \"order\".from_address, \"order\".to_address, \"order\".sending_date as order_sending_date,"
                         " order_item.name as order_item_name, order_item.length, order_item.height, order_item.width, order_type.name as order_type_name,"
-                        " a.first_name as driver_first_name, a.last_name as driver_last_name, a.email as driver_email,"
+                        " a.id as driver_id, a.first_name as driver_first_name, a.last_name as driver_last_name, a.email as driver_email,"
                         " vehicle.car_number, vehicle.model as car_model, company.name as company_name, company.registration_date as company_registration_date,"
                         " shipping.sending_date as shipping_sending_date, shipping.arrival_date as shipping_arrival_date"
                  " FROM user"
@@ -205,10 +205,10 @@ std::string Selector::generateQuerySelectAllByCustomerId(const int& id) const
 
 std::string Selector::generateQuerySelectAllByOrderId(const int& id) const
 {
-    std::string query = "SELECT user.id, user.first_name, user.last_name, user.email,"
+    std::string query = "SELECT \"order\".id as order_id, user.id, user.first_name, user.last_name, user.email,"
                         " \"order\".description, \"order\".price, \"order\".from_address, \"order\".to_address, \"order\".sending_date as order_sending_date,"
                         " order_item.name as order_item_name, order_item.length, order_item.height, order_item.width, order_type.name as order_type_name,"
-                        " a.first_name as driver_first_name, a.last_name as driver_last_name, a.email as driver_email,"
+                        " a.id as driver_id, a.first_name as driver_first_name, a.last_name as driver_last_name, a.email as driver_email,"
                         " vehicle.car_number, vehicle.model as car_model, company.name as company_name, company.registration_date as company_registration_date,"
                         " shipping.sending_date as shipping_sending_date, shipping.arrival_date as shipping_arrival_date"
                  " FROM user"
@@ -226,11 +226,11 @@ std::string Selector::generateQuerySelectAllByOrderId(const int& id) const
 
 std::string Selector::generateQuerySelectAllByDriverId(const int& id) const
 {
-    std::string query = "SELECT user.id, user.first_name, user.last_name, user.email,"
+    std::string query = "SELECT \"order\".id as order_id, user.id, user.first_name, user.last_name, user.email,"
                         " \"order\".description, \"order\".price, \"order\".from_address, \"order\".to_address, \"order\".sending_date as order_sending_date,"
                         " order_item.name as order_item_name, order_item.length, order_item.height, order_item.width, order_type.name as order_type_name,"
-                        " ct.first_name as customer_first_name, ct.last_name as customer_last_name, ct.email as customer_email,"
-                        " vehicle.car_number, vehicle.model as car_model, company.name as company_name, company.registration_date as company_registartion_date,"
+                        " a.id as driver_id, a.first_name as driver_first_name, a.last_name as driver_last_name, a.email as driver_email,"
+                        " vehicle.car_number, vehicle.model as car_model, company.name as company_name, company.registration_date as company_registration_date,"
                         " shipping.sending_date as shipping_sending_date, shipping.arrival_date as shipping_arrival_date"
                  " from user"
                  " join company_employee on user.id = company_employee.employee_id"

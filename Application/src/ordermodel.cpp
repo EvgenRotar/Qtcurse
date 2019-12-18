@@ -4,7 +4,6 @@
 
 OrderModel::OrderModel()
 {
-    updateOrders();
 }
 
 int OrderModel::assignOrderTODriver(int orderId, int driverId){
@@ -150,19 +149,4 @@ QHash<int, QByteArray> OrderModel::roleNames() const
     roles[OrderRoles::ShippingSendingDateRole] = "ShippingSendingDate";
     roles[OrderRoles::ShippingArrivalDateRole] = "ShippingArrivalDate";
     return roles;
-}
-
-bool OrderModel::updateOrders()
-{
-    bool requestResult {false};
-    std::vector<Order> ordersResult;
-
-    std::tie(requestResult, ordersResult) = m_reader.requestOrdersBrowse();
-
-    if (requestResult) {
-        m_orders.swap(ordersResult);
-        emit dataChanged(createIndex(0, 0), createIndex(m_orders.size(), 0));
-    }
-    emit QAbstractListModel::endResetModel();
-    return requestResult;
 }
