@@ -2,8 +2,7 @@
 #include <QQmlApplicationEngine>
 #include <QQuickStyle>
 #include <QQmlContext>
-#include "usermodel.h"
-#include "customermodel.h"
+#include "ordermodel.h"
 #include "serviceaccessor.h"
 #include <QDebug>
 
@@ -13,8 +12,7 @@ int main(int argc, char *argv[])
     QQuickStyle::setStyle("Material");
     QGuiApplication app(argc, argv);
 
-    UserModel::registerMe("Users");
-    CustomerModel::registerMe("Customer");
+    OrderModel::registerMe("Orders");
 
     serviceaccessor *serviceAccessor = new serviceaccessor();
 

@@ -2,6 +2,7 @@ import QtQuick 2.6
 import QtQuick.Controls 2.2
 import QtQuick.Controls.Material 2.2
 import QtQuick.Layouts 1.1
+import Orders 1.0
 Page {
     id: adminMainPage
     property int userId : 0
@@ -32,7 +33,7 @@ Page {
             displayMarginEnd: 0
             verticalLayoutDirection: ListView.TopToBottom
             spacing: 10
-            model: MovieModel
+            model: OrderModel
             ScrollBar.vertical: ScrollBar {
             }
             delegate: ItemDelegate {
@@ -43,7 +44,7 @@ Page {
                 Column{
                     spacing: 5
                     Label {
-                          text: "Movie name: " + MovieName
+                          text: "Movie name: " + OrderItemName
                     }
                     Label {
                           text: "Language: " + Language

@@ -1,5 +1,6 @@
 #pragma once
 #include <vector>
+#include <QList>
 #include <memory>
 #include "order.h"
 
@@ -16,6 +17,10 @@ public:
               std::vector<Order>> requestOrdersBrowse();
 
     ~OrderReader();
+
+    QList<Order> getAllOrders();
+    QList<Order> getCustomerOrders(in customerId);
+    QList<Order> getAssignedToEmployeeOrders(int employeeId);
 
     bool deleteOrder(int id);
     bool finishOrder(const int& orderId);

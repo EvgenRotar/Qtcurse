@@ -4,9 +4,7 @@
 
 OrderModel::OrderModel()
 {
-    if (true) {
-        qWarning() << "created order model";
-    }
+    updateOrders();
 }
 
 int OrderModel::assignOrderTODriver(int orderId, int driverId){
@@ -165,6 +163,6 @@ bool OrderModel::updateOrders()
         m_orders.swap(ordersResult);
         emit dataChanged(createIndex(0, 0), createIndex(m_orders.size(), 0));
     }
-
+    emit QAbstractListModel::endResetModel();
     return requestResult;
 }
