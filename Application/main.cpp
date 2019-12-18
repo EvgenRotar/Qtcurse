@@ -3,6 +3,7 @@
 #include <QQuickStyle>
 #include <QQmlContext>
 #include "ordermodel.h"
+#include "customerordermodel.h"
 #include "serviceaccessor.h"
 #include <QDebug>
 
@@ -13,6 +14,8 @@ int main(int argc, char *argv[])
     QGuiApplication app(argc, argv);
 
     OrderModel::registerMe("Orders");
+    CustomerOrderModel::registerMe("CustomerOrders");
+
 
     serviceaccessor *serviceAccessor = new serviceaccessor();
 

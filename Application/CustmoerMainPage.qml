@@ -2,10 +2,10 @@ import QtQuick 2.6
 import QtQuick.Controls 2.2
 import QtQuick.Controls.Material 2.2
 import QtQuick.Layouts 1.1
-import Orders 1.0
+import CustomerOrders 1.0
 Page {
     id: adminMainPage
-    property int userId : 0
+    property int customerId
     header: ToolBar {
         ToolButton {
             text: qsTr("LogOut")
@@ -15,7 +15,7 @@ Page {
             onClicked: adminMainPage.StackView.view.pop()
         }
         Label {
-            text: qsTr("Admin Panel")
+            text: qsTr("My open orders")
             font.pixelSize: 20
             anchors.centerIn: parent
         }
@@ -33,7 +33,7 @@ Page {
             displayMarginEnd: 0
             verticalLayoutDirection: ListView.TopToBottom
             spacing: 10
-            model: OrderModel
+            model: CustomerOrderModel{activeCustomer: customerId}
             ScrollBar.vertical: ScrollBar {
             }
             delegate: ItemDelegate {
@@ -46,15 +46,7 @@ Page {
                     Label {
                           text: "Movie name: " + OrderItemName
                     }
-                    Label {
-                          text: "Language: " + Language
-                    }
-                    Label {
-                          text: "Duration: " + RunningTime
-                    }
-                    Label {
-                          text: "Cinema name: " + CinemaName
-                    }
+
 
                 }
                 onClicked: adminMainPage.StackView.view.push("qrc:/MovieDetailAdmin.qml",{
@@ -87,7 +79,8 @@ Page {
         anchors.right: parent.right
         anchors.bottom: parent.bottom
         onClicked: {
-            adminMainPage.StackView.view.push("qrc:/CustomerCreateOrder.qml", {accessModel:mainUserListView.model})
+            adminMainPage.StackView.view.push("qrc:/CustomerCreateOrder.qml", {accessModel:mainUserListView.model,
+                                                                                userId:userId})
         }
     }
 

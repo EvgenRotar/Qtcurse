@@ -91,7 +91,8 @@ ApplicationWindow {
                      console.log(userRights)
                      var userRights = "user"
                      if(userRights === "user"){
-                         signInPage.StackView.view.push("qrc:/CustmoerMainPage.qml", {userId : userid})
+                         signInPage.StackView.view.push("qrc:/CustmoerMainPage.qml", {customerId : userid})
+                         console.log(userid)
                          return
                      }
                      if(userRights === "admin"){
