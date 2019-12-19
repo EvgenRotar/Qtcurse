@@ -47,29 +47,30 @@ Page {
                 height: 100
                 spacing: 10
                 Column{
-                    spacing: 5
+                    spacing: 8
                     Label {
-                          text: "Movie name: " + OrderItemName
+                          text: "Order item: " + OrderItemName
+                    }
+                    Label {
+                          text: "Order price: " + OrderPrice
+                    }
+                    Label {
+                          text: "Sending date: " + OrderSendingDate
                     }
 
+                    Label {
+                          text: "Assigned to Driver: " + IsAssigned
+                    }
+                    Rectangle{
+                        width: mainUserListView.width - mainUserListView.leftMargin
+                               - mainUserListView.rightMargin
+                        height: 1;
+                        color: "grey"
 
+                    }
                 }
-                onClicked: adminMainPage.StackView.view.push("qrc:/MovieDetailAdmin.qml",{
-                                                                movName : MovieName,
-                                                                movlang : Language,
-                                                                movRunTime : RunningTime,
-                                                                movRentType : RentalType,
-                                                                movReleaseDate : ReleaseDate,
-                                                                movEndDate : EndDate,
-                                                                movCinemaName : CinemaName,
-                                                                movCinemaAddres : CinemaAddres,
-                                                                movAuthFirstName : AuthorFirstName,
-                                                                movAuthLAstName : AuthorLastName,
-                                                                movAuthDateOfBirth : AuthorDateOfBirth,
-                                                                movDirFirstName : DirectorFirstName,
-                                                                movDirLAstName : DirectorLastName,
-                                                                movDirDateOfBirth : DirectorDateOfBirth,
-                                                                movId : MovieId})
+                onClicked: adminMainPage.StackView.view.push("qrc:/CustomerOrderDetails.qml",{orderId : dbId,
+                                                                                                activeCustomer:customerId})
             }
         }
     }

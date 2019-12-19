@@ -7,6 +7,12 @@ CustomerOrderModel::CustomerOrderModel()
     updateOrders();
 }
 
+bool CustomerOrderModel::orderAssigned(int orderId){
+     updateOrders();
+    if(m_orders.at(orderId).driverId()!=0)return true;
+    return false;
+}
+
 void CustomerOrderModel::updateOrders(){
     QList<Order> CustomerOrders = m_reader.getCustomerOrders(m_ActiveCustomerId);
     m_orders = CustomerOrders;
@@ -124,6 +130,14 @@ QVariant CustomerOrderModel::data(const QModelIndex& index, int role) const
         case OrderRoles::ShippingArrivalDateRole: {
             return QVariant::fromValue(order.shippingArrivalDate());
         }
+        case OrderRoles::dbIdRole: {
+            return QVariant::fromValue(order.m_id);
+        }
+        case OrderRoles::isAssignedRole:{
+            if(order.driverId() == 0) return QVariant::fromValue(QString::fromStdString("Not Assigned"));
+            return QVariant::fromValue(QString::fromStdString("Assigned"));
+        }
+
         default: {
             return {};
         }
@@ -155,5 +169,7 @@ QHash<int, QByteArray> CustomerOrderModel::roleNames() const
     roles[OrderRoles::CompanyRegistrationDateRole] = "CompanyRegistrationDate";
     roles[OrderRoles::ShippingSendingDateRole] = "ShippingSendingDate";
     roles[OrderRoles::ShippingArrivalDateRole] = "ShippingArrivalDate";
+    roles[OrderRoles::isAssignedRole] = "IsAssigned";
+    roles[OrderRoles::dbIdRole] = "dbId";
     return roles;
 }

@@ -17,6 +17,8 @@ public:
                                    QString sendingDate, QString orderItemName,
                                    QString length, QString width,
                                    QString height);
+    Q_INVOKABLE bool orderAssigned(int orderId);
+
     static void registerMe(const std::string& moduleName);
     int rowCount(const QModelIndex& parent = {}) const override;
     QVariant data(const QModelIndex& index = {}, int role = Qt::DisplayRole) const override;
@@ -52,7 +54,9 @@ private:
         DriverEmailRole,
         CustomerFirstNameRole,
         CustomerSecondNameRole,
-        CustomerEmailRole
+        CustomerEmailRole,
+        isAssignedRole,
+        dbIdRole
     };
 
 };
