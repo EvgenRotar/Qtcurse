@@ -170,7 +170,7 @@ std::string Selector::generateQuerySelectAllOrders() const
                  " left join shipping on \"order\".id = shipping.order_id"
                  " join user on \"order\".customer_id = user.id"
                  " left join user a on a.id = shipping.driver_id"
-                 " left join vehicle_driver on dr.id = vehicle_driver.driver_id"
+                 " left join vehicle_driver on a.id = vehicle_driver.driver_id"
                  " left join vehicle on vehicle_driver.vehicle_id = vehicle.id"
                  " left join company on vehicle.company_id = company.id";
     return query;
