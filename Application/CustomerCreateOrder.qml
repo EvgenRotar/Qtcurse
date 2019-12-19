@@ -5,9 +5,7 @@ import QtQuick.Layouts 1.1
 import CustomerOrders 1.0
 
 Page {
-    CustomerOrderModel{
-        id:backend
-    }
+    property CustomerOrderModel bakcAccess
     id: createOrderPage
     property int customerIdd
     header: ToolBar {
@@ -130,6 +128,12 @@ Page {
                 color: "red"
                 text: qsTr("Please fill all fields correctly.")
             }
+            Text {
+                visible: false
+                id: succsess
+                color: "green"
+                text: qsTr("Order successfully created.")
+            }
 
             Button {
                 contentItem: Text {
@@ -156,7 +160,7 @@ Page {
                     if(itemHeight.length ===0){wrongfields.visible = true; return}
                     if(itemWidth.length ===0){wrongfields.visible = true; return}
 
-                    var requestResult = backend.createNewOrder(cbItems.currentIndex,customerIdd,
+                    var requestResult = bakcAccess.createNewOrder(cbItems.currentIndex,customerIdd,
                                                                    description.text,price.text,
                                                                    startAddres.text,endAddres.text,
                                                                    sendingDate.text,orderItemName.text,

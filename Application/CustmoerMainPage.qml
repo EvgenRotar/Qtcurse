@@ -4,6 +4,11 @@ import QtQuick.Controls.Material 2.2
 import QtQuick.Layouts 1.1
 import CustomerOrders 1.0
 Page {
+    CustomerOrderModel{
+        activeCustomer: customerId
+        id: backEnd
+    }
+
     id: adminMainPage
     property int customerId
     header: ToolBar {
@@ -33,7 +38,7 @@ Page {
             displayMarginEnd: 0
             verticalLayoutDirection: ListView.TopToBottom
             spacing: 10
-            model: CustomerOrderModel{activeCustomer: customerId}
+            model: backEnd
             ScrollBar.vertical: ScrollBar {
             }
             delegate: ItemDelegate {
@@ -79,7 +84,7 @@ Page {
         anchors.right: parent.right
         anchors.bottom: parent.bottom
         onClicked: {
-            adminMainPage.StackView.view.push("qrc:/CustomerCreateOrder.qml", {accessModel:mainUserListView.model,
+            adminMainPage.StackView.view.push("qrc:/CustomerCreateOrder.qml", {bakcAccess:backEnd,
                                                                                 customerIdd:customerId})
         }
     }

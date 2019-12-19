@@ -8,8 +8,7 @@ CustomerOrderModel::CustomerOrderModel()
 }
 
 void CustomerOrderModel::updateOrders(){
-   //QList<Order> CustomerOrders = m_reader.getCustomerOrders(m_ActiveCustomerId);
-    QList<Order> CustomerOrders = m_reader.getAllOrders();
+    QList<Order> CustomerOrders = m_reader.getCustomerOrders(m_ActiveCustomerId);
     m_orders = CustomerOrders;
     emit QAbstractListModel::endResetModel();
 }
@@ -31,8 +30,12 @@ int CustomerOrderModel::createNewOrder(int orderType,int customerId,
                                        QString length, QString width,
                                        QString height)
 {
-
+    int result = m_reader.addOrder(orderType ,customerId,description.toStdString() ,price.toInt(),
+                                   fromAddress.toStdString(),toAddress.toStdString(),
+                                   sendingDate.toStdString(),orderItemName.toStdString(),
+                                   length.toInt(),width.toInt(),height.toInt());
     updateOrders();
+    return result;
 }
 
 void CustomerOrderModel::registerMe(const std::string& moduleName)
