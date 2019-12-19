@@ -29,8 +29,8 @@ usersservice::usersservice()
     insertRow("company", {{"Lexas","2018-01-01"}});
     insertRow("company_employee", {{"1","3","70"}});
     insertRow("company_employee", {{"2","4","50"}});
-    insertRow("order_type", {{"Xrypkiy"}});
-    insertRow("order_type", {{"Ne xrypkiy"}});
+    insertRow("order_type", {{"Fragile"}});
+    insertRow("order_type", {{"Not Fragile"}});
     insertRow("order", {{"1","1","vezem","100","from address1","to address2","2019-02-02"}});
     insertRow("order", {{"2","1","vezti bistro","200","from address2","to address3","2019-03-03"}});
     insertRow("order", {{"2","1","vezti bistro","200","from address2","to address3","2019-03-03"}});
