@@ -18,7 +18,7 @@ public:
           QString toAddress,
           QString orderSendingDate,
           QString orderItemName,
-            QString orderItemLength,
+          QString orderItemLength,
           QString orderItemHeight,
           QString orderItemWidth,
           QString orderTypeName,

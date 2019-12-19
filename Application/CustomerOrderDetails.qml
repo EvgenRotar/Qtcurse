@@ -86,11 +86,11 @@ Page {
         }
         Label {
             font.pointSize: 20
-            text: "Start addres date: " + startAddres
+            text: "Start addres: " + startAddres
         }
         Label {
             font.pointSize: 20
-            text: "Start addres date: " + endAddres
+            text: "Start addres: " + endAddres
         }
         Label {
             font.pointSize: 20
