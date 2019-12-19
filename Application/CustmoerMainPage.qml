@@ -5,6 +5,7 @@ import QtQuick.Layouts 1.1
 import CustomerOrders 1.0
 
 Page {
+    Material.accent: Material.Cyan
     CustomerOrderModel {
         activeCustomer: customerId
         id: backEnd
@@ -13,6 +14,7 @@ Page {
     id: adminMainPage
     property int customerId
     header: ToolBar {
+        Material.background: Material.Cyan
         ToolButton {
             text: qsTr("LogOut")
             anchors.left: parent.left
@@ -102,11 +104,12 @@ Page {
     }
 
     RoundButton {
-        text: "\u2795" // Unicode Character 'CHECK MARK'
-        width: 75
-        height: 75
-        anchors.bottomMargin: 15
-        anchors.rightMargin: 15
+        text: "\uff0b" // Unicode Character 'CHECK MARK'
+        width: 80
+        height: 80
+        Material.background: Material.Cyan
+        anchors.bottomMargin: 20
+        anchors.rightMargin: 20
         anchors.right: parent.right
         anchors.bottom: parent.bottom
         onClicked: {

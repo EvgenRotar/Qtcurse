@@ -7,6 +7,7 @@ import CustomerOrders 1.0
 
 
 Page {
+    Material.accent: Material.Cyan
     property var customerId
 
     property var orderId
@@ -31,6 +32,7 @@ Page {
 
     id: adminDetailPage
     header: ToolBar {
+        Material.background: Material.Cyan
         ToolButton {
             text: qsTr("Back")
             anchors.left: parent.left

@@ -11,7 +11,7 @@ ApplicationWindow {
     width: 540
     height: 960
     Material.theme: Material.Light
-    Material.accent: Material.Green
+    Material.accent: Material.Cyan
 
 
     StackView {
@@ -85,7 +85,7 @@ ApplicationWindow {
                  width: parent.width
                  text: qsTr("Log In")
 
-                 Material.background: Material.Green // Change the background
+                 Material.background: Material.Teal// Change the background
                  onClicked: {
                      var userid = serviceAccessor.tryLogIn(username.text,password.text)
                      console.log(userid)
@@ -124,7 +124,8 @@ ApplicationWindow {
                  id: signUp
                  width: parent.width
                  text: qsTr("Register")
-                 Material.background: Material.Pink // Change the background
+
+                 Material.background: Material.Teal // Change the background
                  onClicked: {
                      signInPage.StackView.view.push("qrc:/RegistrationPage.qml",{})
                  }

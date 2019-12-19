@@ -5,10 +5,12 @@ import QtQuick.Layouts 1.1
 import CustomerOrders 1.0
 
 Page {
+    Material.accent: Material.Cyan
     property CustomerOrderModel bakcAccess
     id: createOrderPage
     property int customerIdd
     header: ToolBar {
+        Material.background: Material.Cyan
         ToolButton {
             text: qsTr("Back")
             anchors.left: parent.left

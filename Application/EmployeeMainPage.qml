@@ -5,6 +5,7 @@ import QtQuick.Layouts 1.1
 import EmployeeOrders 1.0
 
 Page {
+    Material.accent: Material.Cyan
     EmployeeOrderModel {
         id: backEnd
         activeCustomer: 0
@@ -12,6 +13,7 @@ Page {
     id: userMainPage
     property int userId
     header: ToolBar {
+         Material.background: Material.Cyan
         ToolButton {
             text: qsTr("LogOut")
             anchors.left: parent.left
@@ -26,6 +28,7 @@ Page {
         }
     }
     TabBar {
+
         id: tabBar
         width: userMainPage.widh
 

@@ -9,5 +9,6 @@
         <file>EmployeePersonalOrderDetails.qml</file>
         <file>CustomerCreateOrder.qml</file>
         <file>AboutPage.qml</file>
+        <file>plus.svg</file>
     </qresource>
 </RCC>

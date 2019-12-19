@@ -4,6 +4,7 @@ import QtQuick.Controls.Material 2.2
 import QtQuick.Layouts 1.1
 
 Page {
+    Material.accent: Material.Cyan
     id: registratinPage
     header: ToolBar {
         Material.background: Material.Cyan
