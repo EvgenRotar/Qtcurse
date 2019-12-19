@@ -151,7 +151,7 @@ int usersservice::registerNewUser(User user) {
 
         const std::string query1 {generateInsertUserRoleQuery()};
         QSqlQuery resultQuery1;
-        std::tie(result1, resultQuery1) = m_executor.execute(query1, {insertUserId, 2});
+        std::tie(result1, resultQuery1) = m_executor.execute(query1, {insertUserId, 1});
         if (result1 == DBResult::OK) {
             return insertUserId;
         }
