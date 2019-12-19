@@ -87,16 +87,16 @@ ApplicationWindow {
 
                  Material.background: Material.Green // Change the background
                  onClicked: {
-                     //var userid = serviceAccessor.tryLogIn(username.text,password.text)
+                     var userid = serviceAccessor.tryLogIn(username.text,password.text)
                      console.log(userid)
-                     var userid = 4
+                     //var userid = 4
                      if(userid === 0){
                          wrong.visible = true
                          return
                      }
-                     //var userRights = serviceAccessor.getUserRights(userid)
+                     var userRights = serviceAccessor.getUserRights(userid)
                      console.log(userRights)
-                     var userRights = "user"
+                     //var userRights = "user"
                      if(userRights === "admin"){
                          signInPage.StackView.view.push("qrc:/CustmoerMainPage.qml", {customerId : userid})
                          console.log(userid)
