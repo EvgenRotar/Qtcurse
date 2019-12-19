@@ -2,9 +2,12 @@ import QtQuick 2.6
 import QtQuick.Controls 2.2
 import QtQuick.Controls.Material 2.2
 import QtQuick.Layouts 1.1
-//import moviemodel 1.0
+import EmployeeOrders 1.0
 
 Page {
+    EmployeeOrderModel {
+        id: backEnd
+    }
     id: userMainPage
     property int userId
     header: ToolBar {
@@ -16,7 +19,7 @@ Page {
             onClicked: userMainPage.StackView.view.pop()
         }
         Label {
-            text: qsTr("Movies")
+            text: qsTr("Active orders")
             font.pixelSize: 20
             anchors.centerIn: parent
         }
@@ -30,13 +33,13 @@ Page {
         TabButton {
             enabled: false
             width: userMainPage.width / 2
-            text: qsTr("All movies")
+            text: qsTr("Open orders")
         }
 
         TabButton {
             enabled: false
             width: userMainPage.width / 2
-            text: qsTr("Liked movies")
+            text: qsTr("My orders")
         }
     }
 
@@ -48,10 +51,10 @@ Page {
         onCurrentIndexChanged: {
             var ind = view.currentIndex
             if(ind === 0 ){
-                MovieModel.setActiveUserId(0)
+                backEnd.setActiveUserId(0)
             }
             if(ind === 1){
-                MovieModel.setActiveUserId(userId)
+                backEnd.setActiveUserId(userId)
             }
         }
 
@@ -70,47 +73,58 @@ Page {
                     displayMarginEnd: 0
                     verticalLayoutDirection: ListView.TopToBottom
                     spacing: 10
-                    model: MovieModel
+                    model: backEnd
                     ScrollBar.vertical: ScrollBar {
                     }
                     delegate: ItemDelegate {
                         width: mainUserListView.width - mainUserListView.leftMargin
                                - mainUserListView.rightMargin
-                        height: 100
+                        height: 125
                         spacing: 10
-                        Column{
-                            spacing: 5
+                        Column {
+                            spacing: 8
                             Label {
-                                  text: "Movie name: " + MovieName
+                                text: "Order item: " + OrderItemName
                             }
                             Label {
-                                  text: "Language: " + Language
+                                text: "Order price: " + OrderPrice
                             }
                             Label {
-                                  text: "Duration: " + RunningTime
-                            }
-                            Label {
-                                  text: "Cinema name: " + CinemaName
+                                text: "Sending date: " + OrderSendingDate
                             }
 
+                            Label {
+                                text: "Start addres: " + OrderFromAddress
+                            }
+                            Label {
+                                text: "End addres: " + OrderToAddress
+                            }
+                            Rectangle {
+                                width: mainUserListView.width - mainUserListView.leftMargin
+                                       - mainUserListView.rightMargin
+                                height: 1
+                                color: "grey"
+                            }
                         }
-                        onClicked: userMainPage.StackView.view.push("qrc:/MovieDetailsUser.qml",{
-                                                                        movName : MovieName,
-                                                                        movlang : Language,
-                                                                        movRunTime : RunningTime,
-                                                                        movRentType : RentalType,
-                                                                        movReleaseDate : ReleaseDate,
-                                                                        movEndDate : EndDate,
-                                                                        movCinemaName : CinemaName,
-                                                                        movCinemaAddres : CinemaAddres,
-                                                                        movAuthFirstName : AuthorFirstName,
-                                                                        movAuthLAstName : AuthorLastName,
-                                                                        movAuthDateOfBirth : AuthorDateOfBirth,
-                                                                        movDirFirstName : DirectorFirstName,
-                                                                        movDirLAstName : DirectorLastName,
-                                                                        movDirDateOfBirth : DirectorDateOfBirth,
-                                                                        movId : MovieId,
-                                                                        userId : userId})
+                        onClicked: userMainPage.StackView.view.push("qrc:/EmployeeMainOrderDetails.qml",{
+                                                                        customerId: userId,
+                                                                        orderId: dbId,
+                                                                        orderAssigned: IsAssigned,
+                                                                        orderDescriptiom: OrderDescription,
+                                                                        orderPrice: OrderPrice,
+                                                                        orderSendingDate: OrderSendingDate,
+                                                                        orderType: OrderTypeName,
+                                                                        itemName: OrderItemName,
+                                                                        itemHeigh: OrderItemHeight,
+                                                                        itemWidth: OrderItemWidth,
+                                                                        itemLength: OrderItemLength,
+                                                                        startAddres: OrderFromAddress,
+                                                                        endAddres: OrderToAddress,
+                                                                        driverFirstName: DriverFirstName,
+                                                                        driverLastName: DriverLastName,
+                                                                        companyName: CompanyName,
+                                                                        backEnd: backEnd
+                                                                    })
                     }
                 }
             }
@@ -132,7 +146,7 @@ Page {
                     displayMarginEnd: 0
                     verticalLayoutDirection: ListView.TopToBottom
                     spacing: 10
-                    model: MovieModel
+                    model: backEnd
 
                     ScrollBar.vertical: ScrollBar {
                     }
@@ -141,21 +155,27 @@ Page {
                                - mainUserListView.rightMargin
                         height: 100
                         spacing: 10
-                        Column{
-                            spacing: 5
+                        Column {
+                            spacing: 8
                             Label {
-                                  text: "Movie name: " + MovieName
+                                text: "Order item: " + OrderItemName
                             }
                             Label {
-                                  text: "Language: " + Language
+                                text: "Order price: " + OrderPrice
                             }
                             Label {
-                                  text: "Duration: " + RunningTime
-                            }
-                            Label {
-                                  text: "Cinema name: " + CinemaName
+                                text: "Sending date: " + OrderSendingDate
                             }
 
+                            Label {
+                                text: "Assigned to Driver: " + IsAssigned
+                            }
+                            Rectangle {
+                                width: mainUserListView.width - mainUserListView.leftMargin
+                                       - mainUserListView.rightMargin
+                                height: 1
+                                color: "grey"
+                            }
                         }
                         onClicked: userMainPage.StackView.view.push("qrc:/MovieDetailsUser.qml",{
                                                                         movName : MovieName,

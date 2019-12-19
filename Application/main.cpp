@@ -4,6 +4,7 @@
 #include <QQmlContext>
 #include "ordermodel.h"
 #include "customerordermodel.h"
+#include"employeeordermodel.h"
 #include "serviceaccessor.h"
 #include <QDebug>
 
@@ -15,6 +16,7 @@ int main(int argc, char *argv[])
 
     OrderModel::registerMe("Orders");
     CustomerOrderModel::registerMe("CustomerOrders");
+    EmployeeOrderModel::registerMe("EmployeeOrders");
 
 
     serviceaccessor *serviceAccessor = new serviceaccessor();

@@ -89,14 +89,14 @@ ApplicationWindow {
                      }
                      //var userRights = serviceAccessor.getUserRights(userid)
                      console.log(userRights)
-                     var userRights = "user"
+                     var userRights = "admin"
                      if(userRights === "user"){
                          signInPage.StackView.view.push("qrc:/CustmoerMainPage.qml", {customerId : userid})
                          console.log(userid)
                          return
                      }
                      if(userRights === "admin"){
-                         signInPage.StackView.view.push("qrc:/EmployeeMainPage.qml", {userid: userid})
+                         signInPage.StackView.view.push("qrc:/EmployeeMainPage.qml", {userId: userid})
                          return
                      }
                      console.log(userRights)
