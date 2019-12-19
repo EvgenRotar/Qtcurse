@@ -33,7 +33,7 @@ ApplicationWindow {
             ToolButton {
                    text: qsTr("About")
                    anchors.right: parent.right
-                   anchors.leftMargin: 10
+                   anchors.rightMargin: 10
                    anchors.verticalCenter: parent.verticalCenter
                    onClicked: signInPage.StackView.view.push("qrc:/AboutPage.qml")
                }

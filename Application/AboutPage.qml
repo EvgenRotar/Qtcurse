@@ -8,7 +8,7 @@ Page {
     property int customerId
     header: ToolBar {
         ToolButton {
-            text: qsTr("LogOut")
+            text: qsTr("Back")
             anchors.left: parent.left
             anchors.leftMargin: 10
             anchors.verticalCenter: parent.verticalCenter
@@ -23,6 +23,8 @@ Page {
     Text {
         id: name
         font.pointSize: 25
+        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.verticalCenter: parent.verticalCenter
         text: qsTr("Created by Yauheni Rotar")
     }
 }
