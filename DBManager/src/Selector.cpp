@@ -194,11 +194,11 @@ std::string Selector::generateQuerySelectAllByCustomerId(const int& id) const
                  " join \"order\" on user.id = \"order\".customer_id"
                  " join order_item on \"order\".id = order_item.order_id"
                  " left join shipping on shipping.order_id = \"order\".id"
-                 " join order_type on order_type.id = \"order\".type"
-                 " join vehicle_driver on vehicle_driver.driver_id = shipping.driver_id"
-                 " join vehicle on vehicle_driver.vehicle_id = vehicle.id"
-                 " join company on vehicle.company_id = company.id"
-                 " join user a on a.id = shipping.driver_id"
+                 " left join order_type on order_type.id = \"order\".type"
+                 " left join vehicle_driver on vehicle_driver.driver_id = shipping.driver_id"
+                 " left join vehicle on vehicle_driver.vehicle_id = vehicle.id"
+                 " left join company on vehicle.company_id = company.id"
+                 " left join user a on a.id = shipping.driver_id"
                  " where user.id = " + std::to_string(id);
     return query;
 }
@@ -215,11 +215,11 @@ std::string Selector::generateQuerySelectAllByOrderId(const int& id) const
                  " join \"order\" on user.id = \"order\".customer_id"
                  " join order_item on \"order\".id = order_item.order_id"
                  " left join shipping on shipping.order_id = \"order\".id"
-                 " join order_type on order_type.id = \"order\".type"
-                 " join vehicle_driver on vehicle_driver.driver_id = shipping.driver_id"
-                 " join vehicle on vehicle_driver.vehicle_id = vehicle.id"
-                 " join company on vehicle.company_id = company.id"
-                 " join user a on a.id = shipping.driver_id"
+                 " left join order_type on order_type.id = \"order\".type"
+                 " left join vehicle_driver on vehicle_driver.driver_id = shipping.driver_id"
+                 " left join vehicle on vehicle_driver.vehicle_id = vehicle.id"
+                 " left join company on vehicle.company_id = company.id"
+                 " left join user a on a.id = shipping.driver_id"
                  " where \"order\".id = " + std::to_string(id);
     return query;
 }
