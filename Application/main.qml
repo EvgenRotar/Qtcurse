@@ -30,6 +30,13 @@ ApplicationWindow {
                    anchors.verticalCenter: parent.verticalCenter
                    onClicked: close()
                }
+            ToolButton {
+                   text: qsTr("About")
+                   anchors.right: parent.right
+                   anchors.leftMargin: 10
+                   anchors.verticalCenter: parent.verticalCenter
+                   onClicked: signInPage.StackView.view.push("qrc:/AboutPage.qml")
+               }
             Material.background: Material.Cyan
             Label {
                 text: qsTr("LogIn")
@@ -82,20 +89,20 @@ ApplicationWindow {
                  onClicked: {
                      //var userid = serviceAccessor.tryLogIn(username.text,password.text)
                      console.log(userid)
-                     var userid = 1
+                     var userid = 4
                      if(userid === 0){
                          wrong.visible = true
                          return
                      }
                      //var userRights = serviceAccessor.getUserRights(userid)
                      console.log(userRights)
-                     var userRights = "admin"
-                     if(userRights === "user"){
+                     var userRights = "user"
+                     if(userRights === "admin"){
                          signInPage.StackView.view.push("qrc:/CustmoerMainPage.qml", {customerId : userid})
                          console.log(userid)
                          return
                      }
-                     if(userRights === "admin"){
+                     if(userRights === "user"){
                          signInPage.StackView.view.push("qrc:/EmployeeMainPage.qml", {userId: userid})
                          return
                      }

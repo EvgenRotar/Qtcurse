@@ -153,7 +153,7 @@ Page {
                     delegate: ItemDelegate {
                         width: mainUserListView.width - mainUserListView.leftMargin
                                - mainUserListView.rightMargin
-                        height: 100
+                        height: 125
                         spacing: 10
                         Column {
                             spacing: 8
@@ -168,7 +168,10 @@ Page {
                             }
 
                             Label {
-                                text: "Assigned to Driver: " + IsAssigned
+                                text: "Start addres: " + OrderFromAddress
+                            }
+                            Label {
+                                text: "End addres: " + OrderToAddress
                             }
                             Rectangle {
                                 width: mainUserListView.width - mainUserListView.leftMargin
@@ -177,23 +180,25 @@ Page {
                                 color: "grey"
                             }
                         }
-                        onClicked: userMainPage.StackView.view.push("qrc:/MovieDetailsUser.qml",{
-                                                                        movName : MovieName,
-                                                                        movlang : Language,
-                                                                        movRunTime : RunningTime,
-                                                                        movRentType : RentalType,
-                                                                        movReleaseDate : ReleaseDate,
-                                                                        movEndDate : EndDate,
-                                                                        movCinemaName : CinemaName,
-                                                                        movCinemaAddres : CinemaAddres,
-                                                                        movAuthFirstName : AuthorFirstName,
-                                                                        movAuthLAstName : AuthorLastName,
-                                                                        movAuthDateOfBirth : AuthorDateOfBirth,
-                                                                        movDirFirstName : DirectorFirstName,
-                                                                        movDirLAstName : DirectorLastName,
-                                                                        movDirDateOfBirth : DirectorDateOfBirth,
-                                                                        movId : MovieId,
-                                                                        userId : userId})
+                        onClicked: userMainPage.StackView.view.push("qrc:/EmployeePersonalOrderDetails.qml",{
+                                                                        customerId: userId,
+                                                                        orderId: dbId,
+                                                                        orderAssigned: IsAssigned,
+                                                                        orderDescriptiom: OrderDescription,
+                                                                        orderPrice: OrderPrice,
+                                                                        orderSendingDate: OrderSendingDate,
+                                                                        orderType: OrderTypeName,
+                                                                        itemName: OrderItemName,
+                                                                        itemHeigh: OrderItemHeight,
+                                                                        itemWidth: OrderItemWidth,
+                                                                        itemLength: OrderItemLength,
+                                                                        startAddres: OrderFromAddress,
+                                                                        endAddres: OrderToAddress,
+                                                                        driverFirstName: DriverFirstName,
+                                                                        driverLastName: DriverLastName,
+                                                                        companyName: CompanyName,
+                                                                        backEnd: backEnd
+                                                                    })
                     }
                 }
             }

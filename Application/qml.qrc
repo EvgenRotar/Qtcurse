@@ -8,5 +8,6 @@
         <file>EmployeeMainOrderDetails.qml</file>
         <file>EmployeePersonalOrderDetails.qml</file>
         <file>CustomerCreateOrder.qml</file>
+        <file>AboutPage.qml</file>
     </qresource>
 </RCC>
