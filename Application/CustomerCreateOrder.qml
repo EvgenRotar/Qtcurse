@@ -5,8 +5,11 @@ import QtQuick.Layouts 1.1
 import CustomerOrders 1.0
 
 Page {
+    CustomerOrderModel{
+        id:backend
+    }
     id: createOrderPage
-    property int userId
+    property int customerIdd
     header: ToolBar {
         ToolButton {
             text: qsTr("Back")
@@ -152,7 +155,8 @@ Page {
                     if(itemLength.length ===0){wrongfields.visible = true; return}
                     if(itemHeight.length ===0){wrongfields.visible = true; return}
                     if(itemWidth.length ===0){wrongfields.visible = true; return}
-                    var requestResult = CustomerOrderModel.createNewOrder(cbItems.currentIndex,userId,
+
+                    var requestResult = backend.createNewOrder(cbItems.currentIndex,customerIdd,
                                                                    description.text,price.text,
                                                                    startAddres.text,endAddres.text,
                                                                    sendingDate.text,orderItemName.text,

@@ -80,7 +80,7 @@ Page {
         anchors.bottom: parent.bottom
         onClicked: {
             adminMainPage.StackView.view.push("qrc:/CustomerCreateOrder.qml", {accessModel:mainUserListView.model,
-                                                                                userId:userId})
+                                                                                customerIdd:customerId})
         }
     }
 

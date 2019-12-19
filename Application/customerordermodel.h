@@ -11,7 +11,7 @@ public:
     int getActiveCustomer();
     void setActiveCustomer(int custId);
 
-    int createNewOrder(int orderType,int customerId,
+    Q_INVOKABLE int createNewOrder(int orderType,int customerId,
                                    QString description, QString price,
                                    QString fromAddress, QString toAddress,
                                    QString sendingDate, QString orderItemName,
