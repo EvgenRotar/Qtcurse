@@ -169,7 +169,7 @@ std::string Selector::generateQuerySelectAllOrders() const
                  " join order_item on \"order\".id = order_item.order_id"
                  " left join shipping on \"order\".id = shipping.order_id"
                  " join user on \"order\".customer_id = user.id"
-                 " left join user dr on dr.id = shipping.driver_id"
+                 " left join user a on a.id = shipping.driver_id"
                  " left join vehicle_driver on dr.id = vehicle_driver.driver_id"
                  " left join vehicle on vehicle_driver.vehicle_id = vehicle.id"
                  " left join company on vehicle.company_id = company.id";
@@ -241,7 +241,7 @@ std::string Selector::generateQuerySelectAllByDriverId(const int& id) const
                  " join \"order\" on shipping.order_id = \"order\".id"
                  " join order_item on \"order\".id = order_item.order_id"
                  " join order_type on \"order\".type = order_type.id"
-                 " join user ct on ct.id = \"order\".customer_id"
+                 " join user a on a.id = \"order\".customer_id"
                  " where user.id = " + std::to_string(id);
     return query;
 }
