@@ -14,6 +14,12 @@ void EmployeeOrderModel::removeOrder(int orderId){
 
 void EmployeeOrderModel::setActiveUserId(int userId){
     setActiveCustomer(userId);
+
+}
+
+void EmployeeOrderModel::assignToMe(int userId,int orderId){
+    m_reader.acceptOrder(orderId,userId,"","");
+    updateOrders();
 }
 
 void EmployeeOrderModel::updateOrders(){

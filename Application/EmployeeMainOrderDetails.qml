@@ -114,7 +114,7 @@ Page {
 
             Material.background: Material.Green // Change the background
             onClicked: {
-                backEnd.removeOrder(orderId)
+                backEnd.assignToMe(customerId,orderId)
                 adminDetailPage.StackView.view.pop()
             }
 
