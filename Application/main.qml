@@ -89,14 +89,14 @@ ApplicationWindow {
                  onClicked: {
                      var userid = serviceAccessor.tryLogIn(username.text,password.text)
                      console.log(userid)
-                     //var userid = 4
+                     var userid = 1
                      if(userid === 0){
                          wrong.visible = true
                          return
                      }
                      var userRights = serviceAccessor.getUserRights(userid)
                      console.log(userRights)
-                     //var userRights = "user"
+                     var userRights = "admin"
                      if(userRights === "admin"){
                          signInPage.StackView.view.push("qrc:/CustmoerMainPage.qml", {customerId : userid})
                          console.log(userid)

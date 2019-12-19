@@ -8,7 +8,7 @@ Page {
     property int customerId
     header: ToolBar {
         ToolButton {
-            text: qsTr("LogOut")
+            text: qsTr("Back")
             anchors.left: parent.left
             anchors.leftMargin: 10
             anchors.verticalCenter: parent.verticalCenter
