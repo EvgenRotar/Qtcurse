@@ -19,7 +19,7 @@ public:
                                    QString height);
     Q_INVOKABLE void removeOrder(int orderId);
     Q_INVOKABLE void setActiveUserId(int userId);
-    Q_INVOKABLE void assignToMe(int userId);
+    Q_INVOKABLE void assignToMe(int userId,int orderId);
 
     static void registerMe(const std::string& moduleName);
     int rowCount(const QModelIndex& parent = {}) const override;
