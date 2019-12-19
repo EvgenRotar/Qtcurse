@@ -7,10 +7,9 @@ CustomerOrderModel::CustomerOrderModel()
     updateOrders();
 }
 
-bool CustomerOrderModel::orderAssigned(int orderId){
+void CustomerOrderModel::removeOrder(int orderId){
+    m_reader.deleteOrder(orderId);
      updateOrders();
-    if(m_orders.at(orderId).driverId()!=0)return true;
-    return false;
 }
 
 void CustomerOrderModel::updateOrders(){

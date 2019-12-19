@@ -17,7 +17,7 @@ public:
                                    QString sendingDate, QString orderItemName,
                                    QString length, QString width,
                                    QString height);
-    Q_INVOKABLE bool orderAssigned(int orderId);
+    Q_INVOKABLE void removeOrder(int orderId);
 
     static void registerMe(const std::string& moduleName);
     int rowCount(const QModelIndex& parent = {}) const override;
