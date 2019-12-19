@@ -9,7 +9,7 @@ CustomerOrderModel::CustomerOrderModel()
 
 void CustomerOrderModel::updateOrders(){
    //QList<Order> CustomerOrders = m_reader.getCustomerOrders(m_ActiveCustomerId);
-    QList<Order> CustomerOrders = m_reader.getAssignedToEmployeeOrders(3);
+    QList<Order> CustomerOrders = m_reader.getAllOrders();
     m_orders = CustomerOrders;
     emit QAbstractListModel::endResetModel();
 }
