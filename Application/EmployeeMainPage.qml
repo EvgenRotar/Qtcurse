@@ -7,6 +7,7 @@ import EmployeeOrders 1.0
 Page {
     EmployeeOrderModel {
         id: backEnd
+        activeCustomer: 0
     }
     id: userMainPage
     property int userId

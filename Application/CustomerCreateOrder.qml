@@ -114,8 +114,6 @@ Page {
                 currentIndex: 1
 
                 model: ListModel {
-
-
                         ListElement { text: "Fragile" }
                         ListElement { text: "Not Fragile"}
                     }
@@ -130,9 +128,9 @@ Page {
             }
             Text {
                 visible: false
-                id: succsess
-                color: "green"
-                text: qsTr("Order successfully created.")
+                id: failure
+                color: "Red"
+                text: qsTr("Something go wrong.")
             }
 
             Button {
@@ -147,7 +145,7 @@ Page {
                 }
                 id: backLogIn
                 width: parent.width
-                text: qsTr("Create and save movie")
+                text: qsTr("Create and save")
 
                 Material.background: Material.Pink // Change the background
                 onClicked: {
@@ -160,15 +158,20 @@ Page {
                     if(itemHeight.length ===0){wrongfields.visible = true; return}
                     if(itemWidth.length ===0){wrongfields.visible = true; return}
 
-                    var requestResult = bakcAccess.createNewOrder(cbItems.currentIndex,customerIdd,
+
+                    var requestResult = bakcAccess.createNewOrder(cbItems.currentIndex+1,customerIdd,
                                                                    description.text,price.text,
                                                                    startAddres.text,endAddres.text,
                                                                    sendingDate.text,orderItemName.text,
                                                                    itemLength.text,itemWidth.text,itemHeight.text)
                     if(requestResult !== 0){
-                        succsess.visible = true
+                        onClicked: createOrderPage.StackView.view.pop()
                         return
+
+                    }else{
+                        failure.visible = true
                     }
+
 
                 }
             }
