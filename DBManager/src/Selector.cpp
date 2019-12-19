@@ -167,12 +167,12 @@ std::string Selector::generateQuerySelectAllOrders() const
                  " from \"order\""
                  " join order_type on \"order\".type = order_type.id"
                  " join order_item on \"order\".id = order_item.order_id"
-                 " left join shipping on \"order\".id = shipping.order_id"
+                 " join shipping on \"order\".id = shipping.order_id"
                  " join user on \"order\".customer_id = user.id"
-                 " left join user a on a.id = shipping.driver_id"
-                 " left join vehicle_driver on a.id = vehicle_driver.driver_id"
-                 " left join vehicle on vehicle_driver.vehicle_id = vehicle.id"
-                 " left join company on vehicle.company_id = company.id";
+                 " join user a on a.id = shipping.driver_id"
+                 " join vehicle_driver on a.id = vehicle_driver.driver_id"
+                 " join vehicle on vehicle_driver.vehicle_id = vehicle.id"
+                 " join company on vehicle.company_id = company.id";
     return query;
 }
 
