@@ -19,8 +19,8 @@ usersservice::usersservice()
     insertRow("user", {{"Anna", "Glushenko", "anna@mail.com", "admin"}});
     insertRow("user", {{"Lexa", "Tsimbalist", "lexa@mail.com", "user"}});
     insertRow("user", {{"Semen", "Petrenko", "sema@mail.com", "user"}});
-    insertRow("role", {{"customer"}});
-    insertRow("role", {{"driver"}});
+    insertRow("role", {{"admin"}});
+    insertRow("role", {{"user"}});
     insertRow("user_role", {{"1","1"}});
     insertRow("user_role", {{"2","1"}});
     insertRow("user_role", {{"3","2"}});
