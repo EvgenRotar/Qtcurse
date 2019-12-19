@@ -25,6 +25,6 @@ Page {
         font.pointSize: 25
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.verticalCenter: parent.verticalCenter
-        text: qsTr("Created by Yauheni Rotar")
+        text: qsTr("Created by Yauheni Rotar.")
     }
 }
