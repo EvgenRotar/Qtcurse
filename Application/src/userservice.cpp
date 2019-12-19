@@ -33,6 +33,7 @@ usersservice::usersservice()
     insertRow("order_type", {{"Ne xrypkiy"}});
     insertRow("order", {{"1","1","vezem","100","from address1","to address2","2019-02-02"}});
     insertRow("order", {{"2","1","vezti bistro","200","from address2","to address3","2019-03-03"}});
+    insertRow("order", {{"2","1","vezti bistro","200","from address2","to address3","2019-03-03"}});
     insertRow("order_item", {{"1","meat","12","13","14"}});
     insertRow("order_item", {{"2","glass","15","16","17"}});
     insertRow("shipping", {{"1","2019-06-06","2019-07-07","3"}});
